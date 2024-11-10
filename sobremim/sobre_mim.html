@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milleny - Especialista em Recursos Humanos</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Referência ao arquivo CSS -->
+  <style>
+    /* Estilo para a transição de zoom out */
+    .zoom-out {
+      transition: transform 0.5s ease-in-out;
+      transform: scale(0.8);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="typing-animation">Olá. Meu nome é Milleny, prazer em conhecê-lo.</h1>
+  <p>Por favor, dê uma olhada ao redor!</p>
+  <div class="icons">
+    <div class="icon" onclick="redirectToQuali()">
+      <img src="gestao.png" alt="Ícone de um cadeado">
+      <span>Gestão de excelência</span>
+      <div class="magnifier">Ver qualificações</div>
+    </div>
+    <div class="icon" onclick="redirectToQuali()">
+      <img src="lamp.png" alt="Ícone de um muro">
+      <span>Lapidar Talentos</span>
+      <div class="magnifier">Ver qualificações</div>
+    </div>
+    <div class="icon" onclick="redirectToQuali()">
+      <img src="relacon.png" alt="Ícone do Java">
+      <span>Networking esmerado</span>
+      <div class="magnifier">Ver qualificações</div>
+    </div>
+    <div class="icon" onclick="redirectToQuali()">
+      <img src="office.png" alt="Ícone de um coração">
+      <span>Pacote Office completo</span>
+      <div class="magnifier">Ver qualificações</div>
+    </div>
+  </div>
+  <p>Sou apaixonada por construir relações de excelência que melhore a vida das pessoas ao meu redor. Sou especializado em Recursos e Gestão para clientes que vão desde pessoas físicas e pequenas empresas até grandes corporações. O que você faria se tivesse um especialista em Recrutamento disponível ao seu alcance?</p>
+  <!-- Botões -->
+  <div class="index">
+<!--Os flip estão assim devido a transição final-->
+    <a href="Milleny França Curriculo rh.pdf" download class="index-button flip"><br></br>Visualizar Currículo</a>
+    <a href="#" class="index-button flip" onclick="flipPageAndRedirect('../contatos/index.html')"><br></br>Contato</a>
+  </div>
+</div>
+<script src="../../src/transition_verportfolio_resumo.js"></script>
+</body>
+</html>

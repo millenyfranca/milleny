@@ -1,0 +1,148 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+  transition: transform 0.5s ease; /* Transição para animação de giro */
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff; /* Fundo branco */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007bff; /* Azul */
+}
+
+.typing-animation {
+  overflow: hidden; /* Para esconder o conteúdo que ainda não foi animado */
+  white-space: nowrap; /* Evita quebra de linha */
+  border-right: 2px solid transparent; /* Cria o efeito de "digitação" */
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite; /* Adiciona a animação */
+}
+
+@keyframes typing {
+  from { width: 0 } /* Inicia sem largura (não visível) */
+  to { width: 100% } /* Termina com a largura total */
+}
+
+@keyframes blink-caret {
+  from, to { border-right-color: transparent; }
+  50% { border-right-color: #333; } /* Cor do cursor */
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icon {
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+}
+
+.icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s; /* Adicionando transição para o efeito de zoom */
+}
+
+.icon:hover img {
+  transform: scale(1.2); /* Aumenta o tamanho da imagem em 20% ao passar o mouse */
+}
+
+.magnifier {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: none;
+  pointer-events: none;
+  transition: opacity 0.3s; /* Adicionando transição para suavizar a aparição */
+}
+
+.icon:hover .magnifier {
+  display: block;
+}
+
+body.page-flip {
+  animation: page-flip 0.5s forwards; /* Animação de giro da página */
+}
+
+@keyframes page-flip {
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(90deg);
+  }
+}
+
+.index {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  text-align: left;
+}
+
+.index-button {
+  display: block;
+  padding: 10px 10px; /* Ajuste de padding para acomodar o texto */
+  margin: 10px 0; /* Espaçamento vertical entre os botões */
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  width: auto; /* Definido para tamanho automático */
+  height: 80px;
+  line-height: 1; /* Alterado para ajustar a altura do texto */
+  text-align: center;
+}
+
+.index-button:hover {
+  background-color: #0056b3;
+}
+
+.index-button.flip {
+  transform-style: preserve-3d; /* Preserva o eixo Z para a rotação 3D */
+  transition: transform 0.5s ease; /* Transição suave */
+}
+
+.index-button.flip:hover {
+  transform: rotateY(180deg); /* Rotaciona em 3D */
+}
+
+.index-button.hover-flip {
+  transform: rotateY(180deg); /* Rotaciona em 3D */
+}
