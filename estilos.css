@@ -1,14 +1,23 @@
+/* Configurações básicas do corpo */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: #D5006D; /* Cor da fonte para um rosa intenso */
-    overflow: hidden; /* Impedindo a rolagem da página */
+    overflow: hidden; /* Impede a rolagem da página */
     background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: transform 1s ease-in-out; /* Suaviza a rotação */
+    transform-origin: center; /* Define o ponto de rotação */
 }
 
+/* Classe de rotação ativada */
+.page-rotation {
+    transform: rotateY(180deg); /* Rotação no eixo Y */
+}
+
+/* Tela de carregamento */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -22,6 +31,7 @@ body {
     z-index: 9999;
 }
 
+/* Animação do coração */
 .heart {
     position: relative;
     width: 120px;
@@ -61,6 +71,7 @@ body {
     }
 }
 
+/* Estilo para o conteúdo principal */
 .container {
     display: flex;
     flex-direction: column;
@@ -81,6 +92,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Botão de portfólio */
 .button {
     background-color: rgba(255, 105, 180, 0.8);
     color: #FFFFFF;
@@ -95,12 +107,9 @@ h1 {
     background-color: rgba(255, 20, 147, 0.8);
 }
 
-/* Estilo para a rotação */
-#main-content {
-    transition: transform 1s ease;
-    transform-origin: center;
-}
-
-.rotate-animation {
-    will-change: transform;
+/* Animação de rotação da página */
+html, body {
+    height: 100%; /* Garante altura total para a rotação */
+    perspective: 1000px; /* Define a profundidade para o efeito 3D */
+    overflow: hidden; /* Evita barras de rolagem durante a rotação */
 }

@@ -1,28 +1,49 @@
-// Seleciona o conteúdo principal e o botão de portfólio
-const mainContent = document.getElementById('main-content');
-const portfolioLink = document.getElementById('portfolioLink');
+// Seleciona o botão "Ver Portfólio"
+const portfolioLink = document.getElementById("portfolioLink");
+const bodyElement = document.body;
 
-// Função para aplicar a rotação
-function girarPagina(direcao) {
-    if (!mainContent.classList.contains('rotate-animation')) {
-        mainContent.style.transform = `rotateX(${direcao === 'down' ? 180 : -180}deg)`;
-        mainContent.classList.add('rotate-animation');
-        setTimeout(() => {
-            mainContent.classList.remove('rotate-animation');
-        }, 1000); // Remove a classe após a animação
-    }
+// Variável para controlar se a animação inicial do coração terminou
+let isHeartAnimationCompleted = false;
+
+// Função para aplicar a rotação e redirecionar
+function applyRotationAndRedirect(url) {
+    // Evita múltiplos disparos de animação
+    if (bodyElement.classList.contains("page-rotation")) return;
+
+    // Adiciona a classe para rotação
+    bodyElement.classList.add("page-rotation");
+
+    // Após a animação, redireciona para o URL especificado
+    setTimeout(() => {
+        if (url) {
+            window.location.href = url;
+        }
+    }, 1000); // Tempo correspondente à duração da rotação
 }
 
-// Listener para clique no botão "Visualizar Portfólio"
-portfolioLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    girarPagina('down'); // Roda para baixo ao clicar
-    setTimeout(() => {
-        window.location.href = portfolioLink.href;
-    }, 1000); // Redireciona após a animação
+// Evento ao clicar no botão "Ver Portfólio"
+portfolioLink.addEventListener("click", (e) => {
+    if (!isHeartAnimationCompleted) return; // Bloqueia o clique até o coração finalizar
+    e.preventDefault(); // Impede o redirecionamento imediato
+    applyRotationAndRedirect(portfolioLink.href);
 });
 
-// Listener para rolar o botão do mouse
-document.addEventListener('wheel', (e) => {
-    girarPagina(e.deltaY > 0 ? 'down' : 'up'); // Determina a direção com base no movimento do mouse
+// Evento para capturar a rolagem do mouse
+window.addEventListener("wheel", (e) => {
+    if (!isHeartAnimationCompleted) return; // Bloqueia o efeito até o coração finalizar
+    applyRotationAndRedirect(portfolioLink.href);
+});
+
+// Espera a animação do coração terminar
+window.addEventListener("DOMContentLoaded", () => {
+    const heart = document.querySelector(".heart");
+
+    // Monitora o término da animação do coração
+    heart.addEventListener("animationend", () => {
+        isHeartAnimationCompleted = true;
+
+        // Exibe o conteúdo principal após o coração
+        const mainContent = document.getElementById("main-content");
+        mainContent.style.display = "flex";
+    });
 });
