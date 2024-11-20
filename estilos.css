@@ -94,3 +94,13 @@ h1 {
 .button:hover {
     background-color: rgba(255, 20, 147, 0.8);
 }
+
+/* Estilo para a rotação */
+#main-content {
+    transition: transform 1s ease;
+    transform-origin: center;
+}
+
+.rotate-animation {
+    will-change: transform;
+}
